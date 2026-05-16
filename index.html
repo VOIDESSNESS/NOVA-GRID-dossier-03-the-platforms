@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOSSIER III: THE PLATFORMS — Nova Grid Nigeria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04060E;--bg2:#07091A;--sur:#0B0E24;--sur2:#10142E;
+  --indigo:#6366F1;--id2:rgba(99,102,241,0.1);--id3:rgba(99,102,241,0.22);
+  --teal:#00E5C4;--td2:rgba(0,229,196,0.08);--td3:rgba(0,229,196,0.18);
+  --amber:#F59E0B;--ad2:rgba(245,158,11,0.09);--ad3:rgba(245,158,11,0.2);
+  --red:#FF4757;--rd2:rgba(255,71,87,0.09);
+  --green:#22C55E;--gd2:rgba(34,197,94,0.09);
+  --purple:#A78BFA;--pd2:rgba(167,139,250,0.1);
+  --blue:#60A5FA;--bd2:rgba(96,165,250,0.09);
+  --t1:#E8ECF8;--t2:#7A8AB0;--t3:#3C4E72;--t4:#1E2C48;
+  --b:rgba(255,255,255,0.06);--bi:rgba(99,102,241,0.2);
+  --sw:270px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;line-height:1.65}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--t4);border-radius:10px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* SIDEBAR */
+#sb{position:fixed;left:0;top:0;width:var(--sw);height:100vh;background:var(--bg2);border-right:1px solid var(--b);overflow-y:auto;z-index:200;display:flex;flex-direction:column}
+.sbh{padding:24px;border-bottom:1px solid var(--b);flex-shrink:0}
+.sbp{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--indigo);margin-bottom:4px}
+.sbs{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t3);letter-spacing:1px;text-transform:uppercase}
+.sbb{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:var(--id2);border:1px solid var(--bi);padding:4px 10px;border-radius:4px}
+.sbb span{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--indigo);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.dot{width:6px;height:6px;background:var(--indigo);border-radius:50%;animation:pulse 2s infinite}
+.sbn{flex:1;padding:12px 0;overflow-y:auto}
+.sbg{padding:10px 20px 4px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--t4);font-weight:600}
+.sbl{display:flex;align-items:center;gap:8px;padding:8px 20px;font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:500;color:var(--t3);border-left:2px solid transparent;transition:all .2s;cursor:pointer;text-decoration:none}
+.sbl:hover,.sbl.active{color:var(--indigo);background:var(--id2);border-left-color:var(--indigo)}
+.sbn2{font-family:'IBM Plex Mono',monospace;font-size:9px;width:18px;height:18px;background:var(--sur2);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t4)}
+.sbl:hover .sbn2,.sbl.active .sbn2{background:var(--id3);color:var(--indigo)}
+.sbf{padding:14px 20px;border-top:1px solid var(--b);flex-shrink:0}
+.sbf p{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--t4);letter-spacing:1px;text-transform:uppercase;line-height:1.6}
+
+/* MAIN */
+#main{margin-left:var(--sw);min-height:100vh}
+.sec{padding:80px;border-bottom:1px solid var(--b)}
+.sec:nth-child(even){background:var(--bg2)}
+
+/* COVER */
+#cov{min-height:100vh;padding:0;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.cbg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 60% 20%,rgba(99,102,241,.08) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(167,139,250,.05) 0%,transparent 60%)}
+.cgr{position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.02) 1px,transparent 1px);background-size:60px 60px}
+.cc{position:relative;padding:80px;max-width:1100px}
+.cclass{display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:3px}
+.chip.i{color:var(--indigo);border:1px solid var(--bi);background:var(--id2)}
+.chip.a{color:var(--amber);border:1px solid var(--ad3);background:var(--ad2)}
+.chip.p{color:var(--t3);border:1px solid var(--b)}
+.cey{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--indigo);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.cey::before{content:'';display:block;width:36px;height:1px;background:var(--indigo)}
+.ct{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(44px,6vw,84px);font-weight:800;line-height:1.0;color:var(--t1);margin-bottom:16px;letter-spacing:-2px}
+.ct em{color:var(--indigo);font-style:normal}.ct .s{color:var(--purple)}
+.cst{font-size:18px;color:var(--t2);max-width:660px;line-height:1.65;margin-bottom:52px;font-weight:300;font-style:italic}
+.ckpi{display:flex;margin-bottom:52px;flex-wrap:wrap}
+.kpi{padding:24px 36px;border:1px solid var(--b);border-right:none;background:rgba(255,255,255,.02)}
+.kpi:first-child{border-radius:8px 0 0 8px}
+.kpi:last-child{border-radius:0 8px 8px 0;border-right:1px solid var(--b)}
+.kn{font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:600;line-height:1;color:var(--indigo);margin-bottom:5px}
+.kn.t{color:var(--teal)}.kn.a{color:var(--amber)}.kn.pu{color:var(--purple)}
+.kl{font-family:'Bricolage Grotesque',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);font-weight:600}
+.cbot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--b);padding:20px 80px;background:var(--bg2)}
+.cbm{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:1px;text-transform:uppercase}
+.cbm strong{color:var(--t2);display:block;margin-bottom:2px}
+
+/* TYPOGRAPHY */
+.stag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--indigo);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.stag::after{content:'';height:1px;width:36px;background:var(--indigo);opacity:.4}
+.stag.t{color:var(--teal)}.stag.t::after{background:var(--teal)}
+.stag.a{color:var(--amber)}.stag.a::after{background:var(--amber)}
+.stag.pu{color:var(--purple)}.stag.pu::after{background:var(--purple)}
+.h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.1;color:var(--t1);letter-spacing:-1.5px;margin-bottom:18px}
+.h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(22px,2.5vw,36px);font-weight:700;line-height:1.15;color:var(--t1);letter-spacing:-1px;margin-bottom:14px}
+.h3{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:700;color:var(--t1);margin-bottom:8px;letter-spacing:-.3px}
+.lead{font-size:17px;color:var(--t2);max-width:720px;line-height:1.8;margin-bottom:40px;font-weight:300;font-style:italic}
+.body{font-size:14px;color:var(--t2);line-height:1.85;max-width:780px;margin-bottom:18px}
+.body strong{color:var(--t1);font-weight:600}
+
+/* CARDS */
+.card{background:var(--sur);border:1px solid var(--b);border-radius:12px;padding:22px;transition:border-color .2s}
+.card:hover{border-color:rgba(255,255,255,.1)}
+.cg3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0}
+.cg2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin:24px 0}
+
+/* PLATFORM IDENTITY */
+.pc{border-radius:14px;padding:32px;position:relative;overflow:hidden;margin:24px 0}
+.pcc{background:linear-gradient(135deg,rgba(0,229,196,.07),rgba(96,165,250,.05));border:1px solid var(--td3)}
+.pcs{background:linear-gradient(135deg,rgba(99,102,241,.07),rgba(167,139,250,.05));border:1px solid var(--bi)}
+.pcm{background:linear-gradient(135deg,rgba(245,158,11,.07),rgba(244,114,182,.04));border:1px solid var(--ad3)}
+.pcl{font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;font-weight:600}
+.pcl.t{color:var(--teal)}.pcl.i{color:var(--indigo)}.pcl.a{color:var(--amber)}
+.pcn{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;margin-bottom:8px;letter-spacing:-.5px}
+.pcn.t{color:var(--teal)}.pcn.i{color:var(--indigo)}.pcn.a{color:var(--amber)}
+.pcd{font-size:14px;color:var(--t2);line-height:1.65;max-width:580px;margin-bottom:20px}
+.pcs2{display:flex;gap:20px;flex-wrap:wrap}
+.ps{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--t3)}
+.ps strong{display:block;font-size:12px;font-weight:600;margin-bottom:2px}
+.ps.t strong{color:var(--teal)}.ps.i strong{color:var(--indigo)}.ps.a strong{color:var(--amber)}
+.pcwm{position:absolute;right:-12px;bottom:-20px;font-family:'Bricolage Grotesque',sans-serif;font-size:100px;font-weight:800;pointer-events:none;opacity:.04;letter-spacing:-4px}
+
+/* SWATCHES */
+.swr{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.sw{border-radius:8px;overflow:hidden;flex:1;min-width:90px}
+.swc{height:52px}
+.swi{background:var(--sur2);border:1px solid var(--b);border-top:none;padding:8px 10px}
+.swn{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700;color:var(--t1);margin-bottom:1px}
+.swh{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t3)}
+.swp{font-size:10px;color:var(--t3);margin-top:3px;line-height:1.4}
+
+/* TYPE SPECIMEN */
+.tspec{background:var(--sur);border:1px solid var(--b);border-radius:10px;padding:24px;margin:16px 0}
+.tsr{display:flex;align-items:flex-start;gap:16px;padding:12px 0;border-bottom:1px solid var(--b)}
+.tsr:last-child{border-bottom:none}
+.tsm{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;width:130px;flex-shrink:0;line-height:1.6}
+.tss{flex:1}
+
+/* CALLOUTS */
+.callout{border-radius:0 8px 8px 0;padding:20px 24px;margin:24px 0;border-left:4px solid}
+.callout.i{background:var(--id2);border-color:var(--indigo)}
+.callout.t{background:var(--td2);border-color:var(--teal)}
+.callout.a{background:var(--ad2);border-color:var(--amber)}
+.callout.pu{background:var(--pd2);border-color:var(--purple)}
+.ct2{font-size:15px;color:var(--t1);line-height:1.7;font-style:italic;margin-bottom:8px;font-weight:300}
+.ct2 strong{font-style:normal;font-weight:600}
+.cat{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:1px}
+
+/* TAGS */
+.tag{display:inline-block;padding:3px 8px;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:2px}
+.tag.t{background:var(--td2);color:var(--teal);border:1px solid var(--td3)}
+.tag.i{background:var(--id2);color:var(--indigo);border:1px solid var(--bi)}
+.tag.a{background:var(--ad2);color:var(--amber);border:1px solid var(--ad3)}
+.tag.g{background:var(--gd2);color:var(--green);border:1px solid rgba(34,197,94,.2)}
+.tag.pu{background:var(--pd2);color:var(--purple);border:1px solid rgba(167,139,250,.2)}
+
+/* TABLES */
+.tw{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{text-align:left;padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);border-bottom:1px solid var(--b);background:var(--sur)}
+tbody td{padding:11px 14px;color:var(--t2);border-bottom:1px solid rgba(255,255,255,.025)}
+tbody tr:hover td{background:rgba(99,102,241,.03)}
+.m{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--t1)!important}
+.ci{color:var(--indigo)!important}.ct3{color:var(--teal)!important}.ca{color:var(--amber)!important}.cg{color:var(--green)!important}
+
+/* FEATURE MATRIX */
+.fm{border:1px solid var(--b);border-radius:10px;overflow:hidden;margin:20px 0}
+.fmh{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:var(--sur);border-bottom:1px solid var(--b)}
+.fmc{padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;text-align:center}
+.fmc.t{color:var(--teal)}.fmc.i{color:var(--indigo)}.fmc.a{color:var(--amber)}
+.fmc:first-child{text-align:left}
+.fmr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.025)}
+.fmr:last-child{border-bottom:none}
+.fmr:hover{background:rgba(99,102,241,.03)}
+.fml{padding:10px 14px;font-size:12px;color:var(--t2)}
+.fmcl{padding:10px 14px;text-align:center;font-size:16px}
+.fms{font-size:10px;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+
+/* SECURITY */
+.seclayers{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.sl{display:flex;align-items:flex-start;gap:14px;background:var(--sur);border:1px solid var(--b);border-radius:8px;padding:12px 16px}
+.sln{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--indigo);width:24px;flex-shrink:0}
+.slt{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700;color:var(--t1);width:190px;flex-shrink:0}
+.sld{font-size:12px;color:var(--t3);flex:1;line-height:1.5}
+
+/* API */
+.apis{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.api{background:var(--sur);border:1px solid var(--b);border-radius:8px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start}
+.am{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;padding:3px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
+.get{background:var(--td2);color:var(--teal)}.post{background:var(--id2);color:var(--indigo)}.put{background:var(--ad2);color:var(--amber)}
+.ap{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--t1);font-weight:600;margin-bottom:2px}
+.ad{font-size:11px;color:var(--t3);line-height:1.45}
+.aauth{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t4);margin-top:3px}
+
+/* PRINCIPLES */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+.pc2{background:var(--sur);border:1px solid var(--b);border-radius:10px;padding:20px;border-top:3px solid}
+.pc2.i{border-top-color:var(--indigo)}.pc2.t{border-top-color:var(--teal)}.pc2.a{border-top-color:var(--amber)}.pc2.pu{border-top-color:var(--purple)}
+.pnum{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;line-height:1;margin-bottom:8px}
+.pnum.i{color:var(--indigo)}.pnum.t{color:var(--teal)}.pnum.a{color:var(--amber)}.pnum.pu{color:var(--purple)}
+.pname{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--t1);margin-bottom:5px}
+.pdesc{font-size:11px;color:var(--t3);line-height:1.5}
+
+/* DIVIDER */
+.div{height:1px;background:var(--b);margin:36px 0}
+
+/* PAGE IND */
+.pind{position:fixed;bottom:20px;right:20px;background:var(--bg2);border:1px solid var(--b);border-radius:6px;padding:7px 12px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--t3);z-index:500;letter-spacing:1px}
+
+/* FOOTNOTE */
+.fn{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t4);border-top:1px solid var(--b);padding-top:20px;margin-top:40px;line-height:1.7}
+
+/* ARCH SVG */
+.archbox{background:var(--sur);border:1px solid var(--b);border-radius:12px;padding:24px;margin:20px 0;overflow:hidden}
+
+/* RESPONSIVE */
+@media(max-width:1100px){:root{--sw:220px}.sec{padding:60px 48px}.tc{grid-template-columns:1fr}.cg3{grid-template-columns:1fr 1fr}.pg{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){#sb{transform:translateX(-100%)}#main{margin-left:0}.sec{padding:48px 20px}.cc{padding:40px 20px}.cbot{padding:16px 20px}.ct{font-size:38px}.ckpi{flex-wrap:wrap}.kpi{flex:1;min-width:130px}.cg3{grid-template-columns:1fr}.pg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav id="sb">
+  <div class="sbh">
+    <div class="sbp">NOVA GRID</div>
+    <div class="sbs">Nigeria · The Platforms</div>
+    <div class="sbb"><div class="dot"></div><span>Dossier III · Platforms</span></div>
+  </div>
+  <div class="sbn">
+    <div class="sbg">Contents</div>
+    <a class="sbl" href="#cov"><span class="sbn2">00</span>Cover</a>
+    <a class="sbl" href="#why3"><span class="sbn2">01</span>Why Three Platforms</a>
+    <a class="sbl" href="#principles"><span class="sbn2">02</span>Design Principles</a>
+    <a class="sbl" href="#designsys"><span class="sbn2">03</span>Design System</a>
+    <a class="sbl" href="#colours"><span class="sbn2">04</span>Colour System</a>
+    <a class="sbl" href="#typography"><span class="sbn2">05</span>Typography</a>
+    <div class="sbg">Customer Platform</div>
+    <a class="sbl" href="#cust"><span class="sbn2">06</span>Customer Overview</a>
+    <a class="sbl" href="#custux"><span class="sbn2">07</span>UX Decisions</a>
+    <div class="sbg">Staff Platform</div>
+    <a class="sbl" href="#staff"><span class="sbn2">08</span>Staff Overview</a>
+    <a class="sbl" href="#staffnexus"><span class="sbn2">09</span>NEXUS Integration</a>
+    <div class="sbg">Management Platform</div>
+    <a class="sbl" href="#mgmt"><span class="sbn2">10</span>Management Overview</a>
+    <div class="sbg">Architecture</div>
+    <a class="sbl" href="#techstack"><span class="sbn2">11</span>Technology Stack</a>
+    <a class="sbl" href="#api"><span class="sbn2">12</span>API Architecture</a>
+    <a class="sbl" href="#security"><span class="sbn2">13</span>Security Model</a>
+    <a class="sbl" href="#matrix"><span class="sbn2">14</span>Feature Matrix</a>
+  </div>
+  <div class="sbf"><p>NOVA GRID NIGERIA<br>Platform Architecture Brief<br>Ref: NG-PWR-003 · v1.0<br><br>Dossier III of IV</p></div>
+</nav>
+
+<main id="main">
+
+<!-- COVER -->
+<section id="cov" style="min-height:100vh;padding:0;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden">
+  <div class="cbg"></div><div class="cgr"></div>
+  <div class="cc">
+    <div class="cclass">
+      <div class="chip i">Design & Architecture · Restricted</div>
+      <div class="chip a">Dossier III of IV</div>
+      <div class="chip p">2025 · Nigeria</div>
+    </div>
+    <div class="cey">Nova Grid Nigeria · The Platforms</div>
+    <h1 class="ct">Three Faces<br>of One <em>System</em></h1>
+    <p class="cst">Complete platform architecture for Nova Grid Nigeria — three purpose-built interfaces connecting 45 million customers, 4,800 staff, and executive leadership to the NEXUS intelligent grid.</p>
+    <div class="ckpi">
+      <div class="kpi"><div class="kn">3</div><div class="kl">Distinct interfaces<br>for distinct roles</div></div>
+      <div class="kpi"><div class="kn t">45M+</div><div class="kl">Customer platform<br>target users</div></div>
+      <div class="kpi"><div class="kn a">100%</div><div class="kl">Payments handled by<br>system · not humans</div></div>
+      <div class="kpi"><div class="kn pu">24/7</div><div class="kl">NEXUS AI active<br>across all surfaces</div></div>
+    </div>
+  </div>
+  <div class="cbot">
+    <div style="display:flex;gap:28px;flex-wrap:wrap">
+      <div class="cbm"><strong>Document Type</strong>Platform Architecture & Design Rationale</div>
+      <div class="cbm"><strong>Follows</strong>Dossier II: The Grid (NG-PWR-002)</div>
+      <div class="cbm"><strong>Reference</strong>NG-PWR-003 · v1.0</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t4);letter-spacing:1px">↓ SCROLL</div>
+  </div>
+</section>
+
+<!-- 01: WHY THREE -->
+<section id="why3" class="sec">
+  <div class="stag">01 — Platform Philosophy</div>
+  <h1 class="h1">Why Three Platforms?<br>Because One Cannot<br>Serve All Truth.</h1>
+  <p class="lead">Every person interacting with Nova Grid has a different relationship with power. A household mother needs to feel in control. A grid operator managing a fault needs dense, precise data and immediate decision support. An executive needs strategic altitude. These require three completely different interfaces.</p>
+  <div class="body">The failure mode of most utility platforms is building one interface that attempts to serve all users — and ends up serving none well. Nova Grid's three-platform architecture is a deliberate rejection of this. Each platform answers one question: <strong>what does this person need to feel empowered in their role?</strong></div>
+  <div class="cg3">
+    <div class="card" style="border-top:3px solid var(--teal)">
+      <div style="font-size:28px;margin-bottom:10px">📱</div>
+      <div class="h3" style="color:var(--teal)">NEXUS Consumer</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">Customer Platform</div>
+      <p style="font-size:13px;color:var(--t2);line-height:1.6">For 45 million Nigerians. Welcoming, comprehensible without electricity literacy, available on the cheapest Android phone, and capable of becoming a customer's primary energy management tool. Mobile-first. Dark and light mode.</p>
+      <div style="margin-top:10px"><span class="tag t">Mobile + Desktop</span><span class="tag t">Dark + Light</span></div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--indigo)">
+      <div style="font-size:28px;margin-bottom:10px">🖥️</div>
+      <div class="h3" style="color:var(--indigo)">NEXUS Operations</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">Staff Platform</div>
+      <p style="font-size:13px;color:var(--t2);line-height:1.6">For 4,800 technical operators and support agents. Dense data, precision tools, NEXUS AI deeply integrated. Desktop-only — designed for dedicated workstations in zone control centres. NEXUS handles 94% of cases; humans review the 6% that need judgment.</p>
+      <div style="margin-top:10px"><span class="tag i">Desktop Only</span><span class="tag i">Dark Mode</span></div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--amber)">
+      <div style="font-size:28px;margin-bottom:10px">📊</div>
+      <div class="h3" style="color:var(--amber)">NEXUS Command</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">Management Platform</div>
+      <p style="font-size:13px;color:var(--t2);line-height:1.6">For the CEO, CFO, and six Zone Directors. National-scale grid visualisation, financial performance, team oversight, and NEXUS strategic intelligence. Permanently installed at the National Command Centres in Abuja and Lagos. Investor-presentation-ready at all times.</p>
+      <div style="margin-top:10px"><span class="tag a">Fixed Install</span><span class="tag a">Dark Mode</span></div>
+    </div>
+  </div>
+  <div class="callout i">
+    <p class="ct2">The three-platform architecture is also a security architecture. <strong>Customer data is never accessible on the management platform. Grid technical controls are never accessible on the customer platform.</strong> Separation is architectural — enforced at the API layer, not the interface layer.</p>
+    <div class="cat">— Nova Grid Security Architecture NG-SEC-001</div>
+  </div>
+</section>
+
+<!-- 02: PRINCIPLES -->
+<section id="principles" class="sec">
+  <div class="stag">02 — Design Principles</div>
+  <h1 class="h1">Six Laws That<br>Govern Every Pixel</h1>
+  <p class="lead">These principles govern every design decision across all three platforms. They are not aesthetic preferences — they are functional requirements derived from building digital infrastructure for Nigeria.</p>
+  <div class="pg">
+    <div class="pc2 i"><div class="pnum i">01</div><div class="pname">Clarity Over Cleverness</div><div class="pdesc">Every element has a single unambiguous purpose. We serve users across varied digital literacy levels. If it needs explanation, it needs redesign.</div></div>
+    <div class="pc2 t"><div class="pnum t">02</div><div class="pname">Trust Through Transparency</div><div class="pdesc">Nigerians have been failed by opaque utility systems for 60 years. Every platform shows its work — where power comes from, where money goes, what NEXUS decided and why.</div></div>
+    <div class="pc2 a"><div class="pnum a">03</div><div class="pname">Speed Is a Feature</div><div class="pdesc">Network conditions in Nigeria are variable. Critical functions (power toggle, balance check, payment) must work on 2G. Data loads progressively without blocking core functionality.</div></div>
+    <div class="pc2 pu"><div class="pnum pu">04</div><div class="pname">Intelligent by Default</div><div class="pdesc">NEXUS AI is the foundation platforms are built on — not a feature added to them. Every screen surfaces AI insight appropriate to the user's role.</div></div>
+    <div class="pc2 i"><div class="pnum i">05</div><div class="pname">Accessible to All Nigerians</div><div class="pdesc">Customer platform works on a Tecno Spark. Readable in direct sunlight. Functional with one hand on a danfo bus. WCAG 2.1 AA compliance minimum.</div></div>
+    <div class="pc2 t"><div class="pnum t">06</div><div class="pname">One System, Three Voices</div><div class="pdesc">All three platforms share the same token set — type scale, spacing system, iconography. A staff operator and a customer both recognise Nova Grid ecosystem, though their experiences differ completely.</div></div>
+  </div>
+</section>
+
+<!-- 03: DESIGN SYSTEM -->
+<section id="designsys" class="sec">
+  <div class="stag">03 — The Design System</div>
+  <h1 class="h1">One Token Set.<br>Three Surfaces.</h1>
+  <p class="lead">A design system is the invisible infrastructure of consistency. Nova Grid uses a single token set — spacing, colour, typography, component behaviour — shared across all three platforms.</p>
+  <div class="tc">
+    <div>
+      <div class="h3">Spacing Scale — 4px Base Unit</div>
+      <p class="body">All spacing across all three platforms is a multiple of 4: 4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 48 · 64 · 80 · 96px. This creates visual rhythm without visual rigidity. Cards in the customer platform use 22–24px internal padding; the staff platform uses 14–16px for information density.</p>
+      <div class="h3" style="margin-top:20px">Border Radius Scale</div>
+      <p class="body">More rounding = more consumer-facing. Customer platform: 14–24px cards. Staff platform: 8–12px. Management: 12–16px (premium but not casual). The radius language communicates the relationship between the platform and its user without words.</p>
+      <div class="h3" style="margin-top:20px">Motion Principles</div>
+      <p class="body">Three animation categories: (1) <strong>State transitions</strong> — power toggle pulse, theme switch (200–300ms); (2) <strong>Data loading</strong> — progressive content reveal; (3) <strong>Attention signals</strong> — pulsing dots for live data, critical alerts. Easing: ease-out for entrances, ease-in for exits.</p>
+    </div>
+    <div>
+      <div class="h3">Icon System</div>
+      <p class="body">Prototypes use Unicode emoji for maximum compatibility and zero load overhead — enabling instant stakeholder recognition during review. Production replaces these with Nova Grid Icons: a custom SVG set maintaining identical semantic meaning with precise visual style consistency across all three platforms.</p>
+      <div class="h3" style="margin-top:20px">Component Library</div>
+      <p class="body">Shared React component library (Nova Grid UI) provides the same base components — Card, Button, Chart, Modal, Tag — to all three platforms. Each platform applies its own token set to these components. The same <code style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--indigo)">&lt;Button variant="primary"&gt;</code> renders teal on the customer platform, indigo on staff, and gold on management — one component, three identities.</p>
+      <div class="h3" style="margin-top:20px">Responsive Strategy</div>
+      <p class="body"><strong>Customer:</strong> Mobile-first. Single breakpoint at 768px transforms bottom nav → sidebar, expands charts. <strong>Staff:</strong> Desktop-only. Minimum viewport 1280px. No mobile layout. <strong>Management:</strong> Fixed large display. Optimised for 55–75" 4K panels at the National Command Centre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04: COLOURS -->
+<section id="colours" class="sec">
+  <div class="stag">04 — Colour System</div>
+  <h1 class="h1">Colour With<br>Purpose, Not Decoration</h1>
+  <p class="lead">Every colour in the Nova Grid system carries semantic weight. Each is chosen for what it communicates — not for how it looks.</p>
+  <div class="h3">Platform Primary Accents — The Identity Layer</div>
+  <p class="body">Each platform has a dominant accent creating immediate visual identity. These three accents are deliberately chosen for their psychological associations:</p>
+  <div class="swr">
+    <div class="sw"><div class="swc" style="background:#00E5C4"></div><div class="swi"><div class="swn">Nexus Teal</div><div class="swh">#00E5C4 · Customer</div><div class="swp">Technology, forward motion, reliability. Unique — not a corporate blue, not a consumer green. Signals "smart utility" precisely.</div></div></div>
+    <div class="sw"><div class="swc" style="background:#6366F1"></div><div class="swi"><div class="swn">Operations Indigo</div><div class="swh">#6366F1 · Staff</div><div class="swp">Precision, professionalism, intelligence. Signals this is a serious tool for serious operators. Unmistakably different from customer teal.</div></div></div>
+    <div class="sw"><div class="swc" style="background:#F59E0B"></div><div class="swi"><div class="swn">Command Gold</div><div class="swh">#F59E0B · Management</div><div class="swp">Authority, importance, strategic value, premium status. On the darkest background of the three platforms, it glows with appropriate gravitas.</div></div></div>
+  </div>
+  <div class="h3" style="margin-top:28px">Semantic Colours — Identical Meaning Across All Platforms</div>
+  <div class="swr">
+    <div class="sw"><div class="swc" style="background:#22C55E"></div><div class="swi"><div class="swn">System Green</div><div class="swh">#22C55E</div><div class="swp">Active, operational, healthy, confirmed, resolved. "Everything is working."</div></div></div>
+    <div class="sw"><div class="swc" style="background:#F59E0B"></div><div class="swi"><div class="swn">Alert Amber</div><div class="swh">#F59E0B</div><div class="swp">Warning, high load, approaching limit. "Watch this."</div></div></div>
+    <div class="sw"><div class="swc" style="background:#FF4757"></div><div class="swi"><div class="swn">Critical Red</div><div class="swh">#FF4757</div><div class="swp">Fault, outage, zero balance, fraud. "Act now." Used sparingly so it retains impact.</div></div></div>
+    <div class="sw"><div class="swc" style="background:#60A5FA"></div><div class="swi"><div class="swn">Information Blue</div><div class="swh">#60A5FA</div><div class="swp">Informational content, secondary data series, pending states.</div></div></div>
+    <div class="sw"><div class="swc" style="background:#A78BFA"></div><div class="swi"><div class="swn">NEXUS Purple</div><div class="swh">#A78BFA</div><div class="swp">Reserved exclusively for NEXUS AI. AI speech bubbles, diagnoses, and automated actions are always purple — never confused with human output.</div></div></div>
+  </div>
+  <div class="callout t">
+    <p class="ct2">The customer platform additionally supports a <strong>full Light Mode</strong> — independently designed, not an inverted dark mode. In light mode, teal primary shifts from #00E5C4 to #00A896 (darker for WCAG contrast on white). Every surface is recalculated. <strong>Operators and management do not have light mode</strong> — their environments are controlled, and dark mode is optimal for large-screen data density and eye fatigue reduction in extended shifts.</p>
+    <div class="cat">— Nova Grid Colour System Design Specification NG-DESIGN-001</div>
+  </div>
+</section>
+
+<!-- 05: TYPOGRAPHY -->
+<section id="typography" class="sec">
+  <div class="stag">05 — Typography</div>
+  <h1 class="h1">Four Typefaces.<br>One Voice.</h1>
+  <div class="tspec">
+    <div class="tsr">
+      <div class="tsm">DISPLAY<br>Bricolage Grotesque<br>Wt: 700–800<br>Headlines, brand</div>
+      <div class="tss">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:800;color:var(--t1);letter-spacing:-1px;line-height:1">The Grid Lives.</div>
+        <p style="font-size:11px;color:var(--t3);margin-top:6px;font-family:'IBM Plex Mono',monospace">Page titles, KPI labels, power status. Chosen for its optical width, expressive weight range, and visual command — it dominates without aggression. The same typeface used in dossier cover pages bridges document and product.</p>
+      </div>
+    </div>
+    <div class="tsr">
+      <div class="tsm">DATA<br>IBM Plex Mono<br>Wt: 400–600<br>All numbers, codes</div>
+      <div class="tss">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:var(--teal);line-height:1">38,472 MW · ₦12,400 · 50.01Hz</div>
+        <p style="font-size:11px;color:var(--t3);margin-top:6px;font-family:'IBM Plex Mono',monospace">All numerical data, meter IDs, timestamps, API paths. Monospace is critical for tabular alignment. IBM Plex Mono from IBM's type family ensures visual coherence while serving completely different functional purposes than the serif body text.</p>
+      </div>
+    </div>
+    <div class="tsr">
+      <div class="tsm">UI LABELS<br>Inter<br>Wt: 400–600<br>Staff & Mgmt chrome</div>
+      <div class="tss">
+        <div style="font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--t2)">Customer Database · Active Sessions · Ticket Queue · Zone Performance</div>
+        <p style="font-size:11px;color:var(--t3);margin-top:6px;font-family:'IBM Plex Mono',monospace">Navigation labels, buttons, form fields, dense UI chrome on Staff and Management platforms. Inter is the modern standard for professional-grade UI — exceptional legibility at small sizes. Not used on Customer platform (which uses IBM Plex Sans for warmer feel).</p>
+      </div>
+    </div>
+    <div class="tsr">
+      <div class="tsm">BODY<br>IBM Plex Serif<br>Wt: 300–400<br>Long-form text</div>
+      <div class="tss">
+        <div style="font-family:serif;font-size:15px;font-weight:400;color:var(--t2);font-style:italic;line-height:1.6">"The system processes 8 million data points per second — while the people it serves simply live their lives."</div>
+        <p style="font-size:11px;color:var(--t3);margin-top:6px;font-family:'IBM Plex Mono',monospace">Customer app help text, advisory content, safety tips. The serif conveys considered, trustworthy communication — humanist warmth within IBM's engineering-heritage family.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06: CUSTOMER -->
+<section id="cust" class="sec">
+  <div class="stag t">06 — Customer Platform</div>
+  <h1 class="h1">NEXUS Consumer:<br>Power in Your Palm</h1>
+  <div class="pc pcc">
+    <div class="pcl t">Customer Platform · NEXUS Consumer</div>
+    <div class="pcn t">For 45 Million Nigerians</div>
+    <div class="pcd">The most important interface in the Nova Grid system — because it is the one 45 million Nigerians open daily. It earns trust, reduces friction, and empowers customers who have spent decades powerless against their electricity provider.</div>
+    <div class="pcs2">
+      <div class="ps t"><strong>Devices</strong>Mobile primary · Desktop secondary</div>
+      <div class="ps t"><strong>Fonts</strong>Bricolage Grotesque + IBM Plex Mono</div>
+      <div class="ps t"><strong>Modes</strong>Dark + Full Light Mode</div>
+      <div class="ps t"><strong>Primary</strong>Nexus Teal #00E5C4</div>
+      <div class="ps t"><strong>Languages</strong>English · Yoruba/Hausa/Igbo planned</div>
+    </div>
+    <div class="pcwm" style="color:rgba(0,229,196,.12)">CONSUMER</div>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Feature</th><th>Nigerian Need Addressed</th><th>Design Rationale</th></tr></thead>
+      <tbody>
+        <tr><td><strong style="color:var(--teal)">Remote Power Toggle</strong></td><td>Control supply without physical meter access — security, convenience, travel</td><td>Largest element on Control tab. 96–110px circular button. Impossible to accidentally trigger — confirmation required for OFF. Card reacts visually: teal border glow when ON, neutral when OFF.</td></tr>
+        <tr><td><strong style="color:var(--teal)">Auto-Off Timer</strong></td><td>Avoid overnight overuse; manage generator-era habits of switching everything off at night</td><td>Pre-set durations (30min–24hrs) cover 90% of use cases. Notification 15 min before shutoff prevents unexpected darkness — a trauma from the prepaid meter era.</td></tr>
+        <tr><td><strong style="color:var(--teal)">Wallet + Auto-Recharge</strong></td><td>Separate electricity money from spending money; avoid disconnection during cash-constrained periods</td><td>Wallet card styled like a premium fintech product (think Kuda). Large balance display, gradient card, transfer-back option removes fear of locking cash. Auto-recharge trigger + amount configurable.</td></tr>
+        <tr><td><strong style="color:var(--teal)">Smart Circuit Box</strong></td><td>Identify which appliances draw most current; teach energy literacy without lecturing</td><td>Per-room real-time consumption shown as coloured load bars. Amber → approaching limit. Red → overloaded. Encourages behaviour change through information, not enforcement.</td></tr>
+        <tr><td><strong style="color:var(--teal)">Grid Status View</strong></td><td>Know if outage is a grid fault (not customer's problem) or credit issue (customer's problem)</td><td>Most psychologically important feature. Knowing "Feeder 3 fault, crew dispatched, 2hrs" is infinitely less stressful than unexplained darkness. Includes crew GPS status and ETR countdown.</td></tr>
+        <tr><td><strong style="color:var(--teal)">Family Mode</strong></td><td>Multiple adults sharing one meter in one household — a Nigerian reality</td><td>One Primary Operator holds control authority. Others can view, pay, and message. Prevents conflict from dual control (teenager turning off the fridge). Emergency Primary transfer via identity verification.</td></tr>
+        <tr><td><strong style="color:var(--teal)">NEXUS Chat Assistant</strong></td><td>Support without hold queues or call centres — immediate, contextual, always available</td><td>Presented as chat (WhatsApp-familiar to 90M+ Nigerians). Purple AI speech bubble distinguishes NEXUS from user. Knows customer's balance, usage history, and current grid status. Handles 90%+ of queries autonomously.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07: CUSTOMER UX -->
+<section id="custux" class="sec">
+  <div class="stag t">07 — Customer UX Decisions</div>
+  <h1 class="h1">Every Decision<br>Defended.</h1>
+  <div class="tc">
+    <div>
+      <div class="h3">The Mobile-First Layout</div>
+      <p class="body">Nigeria's internet users access the web predominantly through smartphones. The customer platform is designed mobile-first — the mobile layout is the primary design; desktop is an enhancement. When the screen exceeds 768px: bottom navigation disappears, a left sidebar emerges, content expands, charts grow taller. This is a complete layout philosophy change — not just a resize.</p>
+      <div class="h3" style="margin-top:18px">Bottom Tab Navigation</div>
+      <p class="body">Five tabs (Home, Control, Usage, Pay, Grid) accessed with one thumb tap from anywhere. Positioned at the bottom because that is where Nigerian users' thumbs naturally rest on their phones. The five choices cover every core user action — no user should ever need to search for a function.</p>
+      <div class="h3" style="margin-top:18px">Dark Mode Default / Light Mode Design</div>
+      <p class="body">Dark is default — OLED screens (common on Nigerian mid-range phones) consume significantly less battery in dark mode. Critical for users with intermittent charging access. Light mode is independently designed for outdoor legibility. Both modes pass WCAG contrast requirements independently — they are not approximations of each other.</div>
+    </div>
+    <div>
+      <div class="h3">The Power Toggle Design</div>
+      <p class="body">Nigerians have never had control over their power supply. Giving them a button that controls it must feel powerful and irrevocable — like a real switch, not a software toggle. Large circular button, confirmation state for OFF, animated teal pulse when active, the card border shifts colour, the live wattage reading only appears when powered. The visual language communicates state without text.</p>
+      <div class="h3" style="margin-top:18px">Payment as Fintech</div>
+      <p class="body">The payment system is styled as a premium fintech product, not a utility bill portal. Nigerians are sophisticated fintech users who trust Kuda, Piggyvest, and Flutterwave. The wallet card has a gradient, large balance display, and card metaphors. This increases comfort with storing money in the platform — making auto-recharge adoption higher and advance payment possible.</p>
+      <div class="h3" style="margin-top:18px">Dashboard Design Constraint</div>
+      <p class="body">The dashboard answers exactly five questions: Is my power on? How many units remain? How much did I use today? What is my wallet balance? Is there anything wrong with the grid near me? Nothing else appears on the dashboard. This constraint is the design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08: STAFF -->
+<section id="staff" class="sec">
+  <div class="stag">08 — Staff Platform</div>
+  <h1 class="h1">NEXUS Operations:<br>Human + AI Teamwork</h1>
+  <div class="pc pcs">
+    <div class="pcl i">Staff Platform · NEXUS Operations</div>
+    <div class="pcn i">For 4,800 Professionals</div>
+    <div class="pcd">Built for technical operators, customer support agents, and field coordinators. A professional tool that respects user expertise — dense with information, fast to navigate, honest about uncertainty. Three-column layout: icon nav | main content | always-visible NEXUS panel.</div>
+    <div class="pcs2">
+      <div class="ps i"><strong>Devices</strong>Desktop only · Dedicated workstations</div>
+      <div class="ps i"><strong>Font</strong>Inter + IBM Plex Mono</div>
+      <div class="ps i"><strong>Mode</strong>Dark Mode only</div>
+      <div class="ps i"><strong>Primary</strong>Operations Indigo #6366F1</div>
+      <div class="ps i"><strong>Layout</strong>56px nav | Main | 300px NEXUS panel</div>
+    </div>
+    <div class="pcwm" style="color:rgba(99,102,241,.1)">OPS</div>
+  </div>
+  <div class="tc">
+    <div>
+      <div class="h3">Why Desktop-Only?</div>
+      <p class="body">Grid operations require sustained attention, multi-panel awareness, and interaction precision that a touchscreen phone cannot support. Operators work at fixed multi-monitor workstations in zone control centres. A mobile staff app would compromise information density and create unacceptable security risk — personal phones accessing sensitive infrastructure data and customer records.</p>
+      <div class="h3" style="margin-top:18px">Information Density</div>
+      <p class="body">Smaller font sizes (12–13px body vs 14–15px customer), tighter padding, more compact cards. Appropriate for trained professionals using a tool for 8–12 hour shifts. Tables are the primary data format — sortable, searchable, dense. The customer database table shows 8–10 rows with 8 data points each simultaneously — impossible and unnecessary on the customer platform.</p>
+    </div>
+    <div>
+      <div class="h3">The Three-Column Architecture</div>
+      <p class="body">The persistent right panel (300px) shows NEXUS system status, live alerts, and NEXUS AI chat at all times — regardless of which tab the operator is working in. Operators never lose situational awareness by navigating to another view. NEXUS status is ambient, always present, never requiring navigation.</p>
+      <div class="h3" style="margin-top:18px">The Ticket System Design</div>
+      <p class="body">Each ticket shows NEXUS's diagnostic work alongside the complaint: root cause analysis, confidence score, automated actions already taken, and specific staff actions required. The operator reviews, approves, escalates, or overrides. NEXUS does the analytical work; humans provide judgment on the exceptions. This architecture enables 94% autonomous resolution while preserving human oversight for the remaining 6%.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09: STAFF NEXUS -->
+<section id="staffnexus" class="sec">
+  <div class="stag">09 — NEXUS in the Staff Platform</div>
+  <h1 class="h1">The AI That<br>Explains Itself</h1>
+  <p class="lead">The most dangerous AI system is one that acts without explanation. Every automated action NEXUS takes is logged, explained in plain language, and presented to the human operator before they are asked to confirm escalation or override.</p>
+  <div class="body">On the staff platform, NEXUS speaks in three distinct visual contexts: (1) the right panel chat — for direct operator queries; (2) ticket diagnosis blocks — embedded in each ticket's detail view; (3) the alert feed — real-time notifications of automated actions. All three use purple (#A78BFA) — purple never appears for human-generated content, creating an unmistakable visual grammar for AI vs human.</div>
+  <div class="callout i">
+    <p class="ct2">When NEXUS takes a significant action — isolating a fault segment, applying customer compensation, flagging fraud — the staff platform shows a card styled: <strong>"NEXUS ACTION · [timestamp] · [description] · Confidence: [%]"</strong>. This is not a buried audit log entry. It is a prominent, human-readable announcement of what the AI did and why — in the operator's active work context. This is what makes NEXUS trustworthy rather than merely capable.</p>
+    <div class="cat">— Nova Grid Human-AI Collaboration Design Specification</div>
+  </div>
+</section>
+
+<!-- 10: MANAGEMENT -->
+<section id="mgmt" class="sec">
+  <div class="stag a">10 — Management Platform</div>
+  <h1 class="h1">NEXUS Command:<br>Strategic Altitude,<br>Complete Clarity.</h1>
+  <div class="pc pcm">
+    <div class="pcl a">Management Platform · NEXUS Command</div>
+    <div class="pcn a">For National Grid Leadership</div>
+    <div class="pcd">The executive command centre — for the CEO, CFO, CTO, and six Zone Directors. Displays the entire Nova Grid operation at strategic altitude. Simultaneously the operational intelligence system for national leadership and the investor-presentation interface for Dangote Group board presentations, development finance institutions, and government officials.</div>
+    <div class="pcs2">
+      <div class="ps a"><strong>Install</strong>Fixed at National Command Centres</div>
+      <div class="ps a"><strong>Displays</strong>55–75" 4K panels · Multi-screen</div>
+      <div class="ps a"><strong>Primary</strong>Command Gold #F59E0B</div>
+      <div class="ps a"><strong>Key Feature</strong>Live Nigeria Grid SVG Map</div>
+    </div>
+    <div class="pcwm" style="color:rgba(245,158,11,.08)">COMMAND</div>
+  </div>
+  <div class="tc">
+    <div>
+      <div class="h3">The Nigeria Grid Map</div>
+      <p class="body">The centrepiece of the Grid Command view is a custom SVG map of Nigeria divided into the six geopolitical zones, colour-coded by real-time grid health: green (stable), amber (high load), red (fault active). Each zone is clickable for drill-down. Transmission lines animate as dashed paths showing power flow. A fault causes the animation to pause and a red pulse indicator to appear on the affected segment. Designed for two audiences: the executive needing spatial awareness, and the investor for whom a map is the most immediately comprehensible view of national infrastructure scale.</p>
+      <div class="h3" style="margin-top:18px">Gold Accent Psychology</div>
+      <p class="body">The gold accent on the deepest black background of the three platforms is deliberate investor-psychology design. Gold signals value, stability, and institutional quality. Every design choice at the management level asks: "Would this look credible on a 120-inch screen in a boardroom?" The answer determines every spacing, type size, and colour decision.</p>
+    </div>
+    <div>
+      <div class="h3">What the Platform Intentionally Omits</div>
+      <p class="body">The management platform has no ticket queue, no customer search, and no manual power toggle. These are deliberate absences. <strong>Leadership manages zones, not individual customers.</strong> Their interface shows patterns — average resolution times, zone-level performance, NEXUS autonomy rates — not individual tickets. If a CEO is debugging individual customer tickets, the organisation has failed. The platform's design enforces appropriate role boundaries.</p>
+      <div class="h3" style="margin-top:18px">NEXUS Intelligence View</div>
+      <p class="body">The Intelligence tab surfaces NEXUS's strategic recommendations — demand forecasting, capacity expansion recommendations, fraud pattern analysis, and financial projections — formatted for executive decision-making, not technical analysis. NEXUS presents its recommendations with estimated cost, revenue impact, timeline, and confidence level. Management reviews, challenges, and approves. The AI proposes; the CEO decides.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11: TECH STACK -->
+<section id="techstack" class="sec">
+  <div class="stag">11 — Technology Stack</div>
+  <h1 class="h1">Production-Grade.<br>Nigerian-Optimised.</h1>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Layer</th><th>Technology</th><th>Rationale</th><th>Platform</th></tr></thead>
+      <tbody>
+        <tr><td class="m">Frontend Framework</td><td>React 18 + TypeScript</td><td>Component reuse across platforms, strong typing for complex state, large and growing Nigerian tech talent pool. Next.js for customer (SSR for SEO and performance on weak connections).</td><td><span class="tag t">All 3</span></td></tr>
+        <tr><td class="m">Mobile App</td><td>React Native + Expo</td><td>Single iOS/Android codebase. Expo OTA updates bypass app store delays for rapid fixes. Hermes engine for performance on lower-spec Android (dominant in Nigerian mid-range market).</td><td><span class="tag t">Customer</span></td></tr>
+        <tr><td class="m">State Management</td><td>Zustand + React Query</td><td>React Query with aggressive caching critical for Nigerian network conditions. Optimistic updates for power toggle and payment ensure instant UI feedback even on 2G. Zustand for UI state (theme, modals, active tab).</td><td><span class="tag t">All 3</span></td></tr>
+        <tr><td class="m">Charts</td><td>Recharts + D3.js</td><td>Recharts for standard types (line, bar, doughnut) — React-native. D3.js for custom visualisations (Nigeria SVG grid map, network diagrams). Chart.js for prototype phase.</td><td><span class="tag t">All 3</span></td></tr>
+        <tr><td class="m">Styling</td><td>Tailwind CSS + CSS Modules</td><td>Tailwind for utility-class rapid development with design system token constraint. CSS custom properties for theme tokens (dark/light mode switching). CSS Modules for component-scoped styles.</td><td><span class="tag t">All 3</span></td></tr>
+        <tr><td class="m">Backend API</td><td>NestJS (Node) + Python</td><td>NestJS for REST + GraphQL primary API layer. Python microservices for NEXUS AI (ML inference, forecasting, fraud detection) — Python's ML ecosystem is unmatched. TypeScript throughout.</td><td><span class="tag i">Backend</span></td></tr>
+        <tr><td class="m">Real-Time</td><td>WebSockets + MQTT</td><td>WebSockets for customer app real-time data (live wattage, balance, outage alerts). MQTT for IoT STU communication — publish/subscribe model optimal for 45M simultaneous device connections.</td><td><span class="tag t">All 3</span></td></tr>
+        <tr><td class="m">Database</td><td>PostgreSQL + TimescaleDB + Redis</td><td>PostgreSQL for customer records and financial data (ACID compliance). TimescaleDB extension for time-series meter readings (billions of rows). Redis for caching, sessions, and live data feeds.</td><td><span class="tag i">Backend</span></td></tr>
+        <tr><td class="m">Payments</td><td>Paystack + Flutterwave + USSD APIs</td><td>Paystack for card processing (dominant local coverage). Flutterwave for alternatives and cross-border. Direct bank USSD APIs for users without smartphones — critical for broad Nigerian coverage.</td><td><span class="tag t">Customer</span></td></tr>
+        <tr><td class="m">Auth</td><td>JWT + OAuth 2.0 + Biometrics</td><td>Short-expiry JWTs with refresh rotation. Biometric (Face ID/fingerprint) via device native APIs — reduces PIN fatigue for frequent users. OAuth 2.0 for future third-party integrations.</td><td><span class="tag t">All 3</span></td></tr>
+        <tr><td class="m">Infrastructure</td><td>Kubernetes on Nigerian DCs</td><td>All production infra hosted in Nigerian data centres (data sovereignty). Kubernetes for container orchestration. Auto-scaling for payment spikes (end-of-month). Terraform IaC for reproducible deployments.</td><td><span class="tag i">All Backend</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 12: API -->
+<section id="api" class="sec">
+  <div class="stag">12 — API Architecture</div>
+  <h1 class="h1">The Contracts<br>Between Layers</h1>
+  <p class="lead">All three platforms communicate with NEXUS through a unified API gateway. Role-based access control at the API layer means the customer endpoint returns a fundamentally different data model than management — even for the same underlying data.</p>
+  <div class="archbox">
+    <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--t1);margin-bottom:16px">System Layer Diagram</div>
+    <svg viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:280px">
+      <rect x="0" y="0" width="200" height="52" rx="7" fill="rgba(0,229,196,.08)" stroke="rgba(0,229,196,.25)" stroke-width="1.5"/>
+      <text x="100" y="22" font-family="IBM Plex Mono" font-size="10" fill="#00E5C4" text-anchor="middle" font-weight="600">CUSTOMER</text>
+      <text x="100" y="38" font-family="IBM Plex Mono" font-size="8" fill="#3C4E72" text-anchor="middle">React Native · Next.js</text>
+      <rect x="310" y="0" width="200" height="52" rx="7" fill="rgba(99,102,241,.08)" stroke="rgba(99,102,241,.25)" stroke-width="1.5"/>
+      <text x="410" y="22" font-family="IBM Plex Mono" font-size="10" fill="#6366F1" text-anchor="middle" font-weight="600">STAFF OPS</text>
+      <text x="410" y="38" font-family="IBM Plex Mono" font-size="8" fill="#3C4E72" text-anchor="middle">React · NestJS Admin</text>
+      <rect x="620" y="0" width="200" height="52" rx="7" fill="rgba(245,158,11,.08)" stroke="rgba(245,158,11,.22)" stroke-width="1.5"/>
+      <text x="720" y="22" font-family="IBM Plex Mono" font-size="10" fill="#F59E0B" text-anchor="middle" font-weight="600">MANAGEMENT</text>
+      <text x="720" y="38" font-family="IBM Plex Mono" font-size="8" fill="#3C4E72" text-anchor="middle">React · D3.js</text>
+      <line x1="100" y1="52" x2="100" y2="86" stroke="rgba(255,255,255,.1)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="410" y1="52" x2="410" y2="86" stroke="rgba(255,255,255,.1)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="720" y1="52" x2="720" y2="86" stroke="rgba(255,255,255,.1)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <rect x="0" y="86" width="820" height="52" rx="7" fill="rgba(167,139,250,.07)" stroke="rgba(167,139,250,.22)" stroke-width="1.5"/>
+      <text x="410" y="108" font-family="IBM Plex Mono" font-size="10" fill="#A78BFA" text-anchor="middle" font-weight="600">API GATEWAY — NestJS · JWT Auth · Rate Limiting · RBAC</text>
+      <text x="410" y="126" font-family="IBM Plex Mono" font-size="8" fill="#3C4E72" text-anchor="middle">REST /api/v1/ · GraphQL /graphql · WebSocket ws:// · MQTT broker</text>
+      <line x1="410" y1="138" x2="410" y2="172" stroke="rgba(0,229,196,.3)" stroke-width="2" stroke-dasharray="4 2"/>
+      <rect x="0" y="172" width="190" height="50" rx="6" fill="rgba(0,229,196,.06)" stroke="rgba(0,229,196,.18)" stroke-width="1"/>
+      <text x="95" y="194" font-family="IBM Plex Mono" font-size="9" fill="#00E5C4" text-anchor="middle" font-weight="600">NEXUS AI ENGINE</text>
+      <text x="95" y="210" font-family="IBM Plex Mono" font-size="8" fill="#3C4E72" text-anchor="middle">Python · ML · Routing</text>
+      <rect x="205" y="172" width="170" height="50" rx="6" fill="rgba(96,165,250,.06)" stroke="rgba(96,165,250,.18)" stroke-width="1"/>
+      <text x="290" y="194" font-family="IBM Plex Mono" font-size="9" fill="#60A5FA" text-anchor="middle" font-weight="600">METER GATEWAY</text>
+      <text x="290" y="210" font-family="IBM Plex Mono" font-size="8" fill="#3C4E72" text-anchor="middle">MQTT · 45M STUs</text>
+      <rect x="390" y="172" width="170" height="50" rx="6" fill="rgba(245,158,11,.06)" stroke="rgba(245,158,11,.18)" stroke-width="1"/>
+      <text x="475" y="194" font-family="IBM Plex Mono" font-size="9" fill="#F59E0B" text-anchor="middle" font-weight="600">PAYMENTS</text>
+      <text x="475" y="210" font-family="IBM Plex Mono" font-size="8" fill="#3C4E72" text-anchor="middle">Paystack · Flutterwave</text>
+      <rect x="575" y="172" width="245" height="50" rx="6" fill="rgba(34,197,94,.06)" stroke="rgba(34,197,94,.18)" stroke-width="1"/>
+      <text x="697" y="194" font-family="IBM Plex Mono" font-size="9" fill="#22C55E" text-anchor="middle" font-weight="600">DATA LAYER</text>
+      <text x="697" y="210" font-family="IBM Plex Mono" font-size="8" fill="#3C4E72" text-anchor="middle">PostgreSQL · TimescaleDB · Redis</text>
+      <rect x="150" y="238" width="500" height="34" rx="6" fill="rgba(255,71,87,.05)" stroke="rgba(255,71,87,.18)" stroke-width="1"/>
+      <text x="400" y="257" font-family="IBM Plex Mono" font-size="9" fill="#FF4757" text-anchor="middle" font-weight="600">SCADA / NEXUS GRID LAYER · Air-Gapped OT Network · IEC 61850</text>
+      <text x="400" y="269" font-family="IBM Plex Mono" font-size="7" fill="#3C4E72" text-anchor="middle">Physical grid sensors · Smart substations · Generation plant controllers</text>
+    </svg>
+  </div>
+  <div class="h3" style="margin-top:24px">Core API Endpoints</div>
+  <div class="apis">
+    <div class="api"><div class="am get">GET</div><div><div class="ap">/api/v1/customer/meter/{meterId}/status</div><div class="ad">Real-time meter status: power state, live kW draw, voltage, frequency, units remaining, balance. WebSocket push every 15 seconds.</div><div class="aauth">Auth: Customer JWT · Scope: own meter only</div></div></div>
+    <div class="api"><div class="am post">POST</div><div><div class="ap">/api/v1/customer/meter/{meterId}/control</div><div class="ad">Remote supply toggle. Body: {action:"on"|"off",reason:string}. NEXUS validates, executes via meter gateway. Immutable audit log created.</div><div class="aauth">Auth: Customer JWT · Primary Operator role · 2-step confirmation required</div></div></div>
+    <div class="api"><div class="am post">POST</div><div><div class="ap">/api/v1/payments/wallet/fund</div><div class="ad">Initiate wallet funding. Returns Paystack/Flutterwave payment URL. Webhook at /webhooks/payment confirms completion and auto-credits wallet.</div><div class="aauth">Auth: Customer JWT · Rate limited: 10 requests/hour · All customer roles</div></div></div>
+    <div class="api"><div class="am get">GET</div><div><div class="ap">/api/v1/staff/grid/zones/status</div><div class="ad">All-zone grid health: generation, demand, active faults, NEXUS action count, ATC&C loss per zone. Staff data model includes fault details invisible to customers.</div><div class="aauth">Auth: Staff JWT · Assigned zones only · Field crew: read-only</div></div></div>
+    <div class="api"><div class="am get">GET</div><div><div class="ap">/api/v1/management/analytics/financial</div><div class="ad">Aggregated financial metrics: revenue by zone/tier/payment method, YTD vs target, projection data from NEXUS forecasting models.</div><div class="aauth">Auth: Management JWT · CEO, CFO, Zone Director roles · Read-only</div></div></div>
+    <div class="api"><div class="am post">POST</div><div><div class="ap">/api/v1/nexus/chat</div><div class="ad">NEXUS AI conversational endpoint. Context-aware: customer context includes meter data; staff includes full grid state; management includes strategic metrics. Same endpoint, dynamically scoped.</div><div class="aauth">Auth: Any valid JWT · Context dynamically scoped to role</div></div></div>
+  </div>
+</section>
+
+<!-- 13: SECURITY -->
+<section id="security" class="sec">
+  <div class="stag">13 — Security Model</div>
+  <h1 class="h1">Security by Architecture,<br>Not by Compliance.</h1>
+  <p class="lead">Nova Grid manages power for 45 million Nigerians and handles billions of naira in daily transactions. Security is not a feature — it is the foundation everything else is built on.</p>
+  <div class="seclayers">
+    <div class="sl"><div class="sln">L1</div><div class="slt">Physical Air Gap</div><div class="sld">NEXUS grid control (OT network) is physically air-gapped from all internet-connected systems. No API call from any platform can directly affect grid hardware. Control commands pass through a hardened DMZ with one-way data diodes. A compromised customer app cannot turn off a feeder.</div></div>
+    <div class="sl"><div class="sln">L2</div><div class="slt">Zero-Trust Network</div><div class="sld">No implicit trust for any request, internal or external. Every API call carries a JWT, every service call is authenticated, every data access is authorised. Microsegmentation prevents lateral movement if any single service is compromised.</div></div>
+    <div class="sl"><div class="sln">L3</div><div class="slt">Role-Based Access Control</div><div class="sld">Seven distinct roles: Customer-Primary, Customer-Member, Staff-Operations, Staff-Technical, Staff-Support, Management, Super-Admin. Permission checks at API layer — the frontend never receives data it is not authorised to display. Separation is architectural.</div></div>
+    <div class="sl"><div class="sln">L4</div><div class="slt">End-to-End Encryption</div><div class="sld">TLS 1.3 for all API communication. AES-256 for all data at rest. Per-device PKI certificates for each STU with mutual TLS. PCI-DSS compliant payment tokenisation — Nova Grid never stores raw card data.</div></div>
+    <div class="sl"><div class="sln">L5</div><div class="slt">NEXUS Fraud Detection</div><div class="sld">Statistical anomaly detection on meter consumption patterns identifies bypass and tampering attempts. All fraud flags generate immutable audit records. NEXUS never unilaterally takes punitive action — human investigators review. Confidence score displayed with every flag.</div></div>
+    <div class="sl"><div class="sln">L6</div><div class="slt">Immutable Audit Trails</div><div class="sld">Every action affecting power supply, billing, or customer data is written to an append-only, cryptographically-signed audit log in a tamper-evident store. No staff, admin, or NEXUS process can modify or delete records. This is the technical foundation for anti-corruption enforcement.</div></div>
+    <div class="sl"><div class="sln">L7</div><div class="slt">24/7 Security Operations</div><div class="sld">Dedicated SOC in Abuja and Lagos. SIEM integration with automated incident response playbooks. Quarterly penetration testing by independent third-party. Bug bounty programme for responsible disclosure. IEC 62351 + NIST CSF Level 4 compliance.</div></div>
+  </div>
+</section>
+
+<!-- 14: FEATURE MATRIX -->
+<section id="matrix" class="sec">
+  <div class="stag">14 — Feature Matrix</div>
+  <h1 class="h1">What Each Platform<br>Can and Cannot Do</h1>
+  <p class="lead">Platform boundaries are as important as platform features. The matrix below is both a feature reference and a security specification — documenting what is deliberately absent from each surface.</p>
+  <div class="fm">
+    <div class="fmh">
+      <div class="fmc" style="text-align:left">Feature / Capability</div>
+      <div class="fmc t">Customer</div>
+      <div class="fmc i">Staff</div>
+      <div class="fmc a">Management</div>
+    </div>
+    <div class="fmr"><div class="fml">View own consumption data</div><div class="fmcl">✅</div><div class="fmcl"><span class="fms">Any customer</span></div><div class="fmcl">❌</div></div>
+    <div class="fmr"><div class="fml">Remote power toggle (own meter)</div><div class="fmcl">✅</div><div class="fmcl"><span class="fms">Override</span></div><div class="fmcl">❌</div></div>
+    <div class="fmr"><div class="fml">Make payments &amp; manage wallet</div><div class="fmcl">✅</div><div class="fmcl"><span class="fms">Credit only</span></div><div class="fmcl">❌</div></div>
+    <div class="fmr"><div class="fml">View area / national grid status</div><div class="fmcl"><span class="fms">Own area</span></div><div class="fmcl"><span class="fms">Zone scope</span></div><div class="fmcl">✅</div></div>
+    <div class="fmr"><div class="fml">Search customer database</div><div class="fmcl">❌</div><div class="fmcl">✅</div><div class="fmcl"><span class="fms">Aggregated only</span></div></div>
+    <div class="fmr"><div class="fml">View &amp; manage ticket queue</div><div class="fmcl">❌</div><div class="fmcl">✅</div><div class="fmcl"><span class="fms">Stats only</span></div></div>
+    <div class="fmr"><div class="fml">View NEXUS AI diagnosis</div><div class="fmcl"><span class="fms">Summary</span></div><div class="fmcl">✅</div><div class="fmcl"><span class="fms">Reports</span></div></div>
+    <div class="fmr"><div class="fml">Issue grid fault isolation commands</div><div class="fmcl">❌</div><div class="fmcl">✅</div><div class="fmcl">❌</div></div>
+    <div class="fmr"><div class="fml">View Nigeria national grid SVG map</div><div class="fmcl">❌</div><div class="fmcl"><span class="fms">Zone only</span></div><div class="fmcl">✅</div></div>
+    <div class="fmr"><div class="fml">View revenue &amp; financial data</div><div class="fmcl">❌</div><div class="fmcl">❌</div><div class="fmcl">✅</div></div>
+    <div class="fmr"><div class="fml">Manage staff accounts &amp; shifts</div><div class="fmcl">❌</div><div class="fmcl"><span class="fms">Own shift</span></div><div class="fmcl">✅</div></div>
+    <div class="fmr"><div class="fml">Receive NEXUS strategic recommendations</div><div class="fmcl">❌</div><div class="fmcl">❌</div><div class="fmcl">✅</div></div>
+    <div class="fmr"><div class="fml">View full immutable audit trail</div><div class="fmcl"><span class="fms">Own account</span></div><div class="fmcl"><span class="fms">Zone scope</span></div><div class="fmcl">✅</div></div>
+    <div class="fmr"><div class="fml">Emergency grid shutdown authorisation</div><div class="fmcl">❌</div><div class="fmcl"><span class="fms">2-person auth</span></div><div class="fmcl"><span class="fms">2-person auth</span></div></div>
+  </div>
+  <div class="fn">
+    <strong>NOVA GRID NIGERIA</strong> — Dossier III: The Platforms · Document Reference: NG-PWR-003 v1.0<br>
+    This document concludes the three architectural dossiers. Interactive HTML prototypes for all three interfaces are provided in separate files: interface-customer.html, interface-staff.html, and interface-management.html.<br><br>
+    Technology recommendations based on 2025 production standards and the specific requirements of large-scale Nigerian infrastructure deployment. All architecture decisions prioritise: data sovereignty (Nigerian hosting), performance under constrained network conditions, and security appropriate for critical national infrastructure.<br><br>
+    Phase I platform roadmap (2026–2028): Native iOS and Android apps, multilingual support (Yoruba, Hausa, Igbo), advanced NEXUS AI features including predictive outage notification and energy efficiency recommendations.
+  </div>
+</section>
+</main>
+
+<div class="pind" id="pind">Section 00 / 14</div>
+
+<script>
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.sbl');
+const pind = document.getElementById('pind');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      const id = e.target.id;
+      links.forEach(l => {
+        l.classList.remove('active');
+        if(l.getAttribute('href')==='#'+id) {
+          l.classList.add('active');
+          const n = l.querySelector('.sbn2');
+          if(n) pind.textContent = 'Section '+n.textContent+' / 14';
+        }
+      });
+    }
+  });
+}, {threshold:0.2});
+secs.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
